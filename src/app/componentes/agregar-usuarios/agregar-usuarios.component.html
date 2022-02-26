@@ -1,0 +1,46 @@
+<div class="bodyt">
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="title">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            required
+            [(ngModel)]="Usuario.email"
+            name="email"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="descriction">Password</label>
+          <input
+            class="form-control"
+            id="password"
+            required
+            [(ngModel)]="Usuario.password"
+            name="password"
+          />
+        </div>
+
+        <div class="form-group">
+            <label for="descriction">Username</label>
+            <input
+              class="form-control"
+              id="username"
+              required
+              [(ngModel)]="Usuario.username"
+              name="username"
+            />
+          </div>
+  
+        <button (click)="guardarUsuario()" class="btn btn-success">Enviar</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Imagen enviada correctamente!</h4>
+        <button class="btn btn-success" (click)="nuevoUsuario()">Agregar</button>
+      </div>
+    </div>
+  </div>

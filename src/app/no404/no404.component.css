@@ -1,0 +1,15 @@
+.logres{
+    color: black;
+    background-color: rgb(230, 230, 230);
+    transition: font-weight 100ms;
+    transition: color 600ms;
+    transition: font-size 600ms;
+}
+.logres :hover{
+color: brown !important;
+font-weight: 900 !important;
+font-size: 20px;
+transition: font-weight 100ms;
+transition: color 600ms;
+transition: font-size 600ms;
+}

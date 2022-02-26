@@ -1,0 +1,93 @@
+<div *ngIf="viewMode; else editable" class="bodyt">
+    <div *ngIf="usuarioActual.id" class="bodytt">
+      <h4>Usuario</h4>
+      <div>
+        <label><strong>Email:</strong></label> {{ usuarioActual.email }}
+      </div>
+      <div>
+        <label><strong>Username:</strong></label>
+        {{ usuarioActual.username }}
+      </div>
+  
+      <a
+        class="badge badge-warning"
+        routerLink="./{{ usuarioActual.id }}"
+      >
+        Editar
+      </a>
+    </div>
+  
+    <div *ngIf="!usuarioActual">
+      <br />
+      <p>Por favor seleccione un Usuario...</p>
+    </div>
+  </div>
+  
+  <ng-template #editable>
+    <div *ngIf="usuarioActual.id" class="edit-form">
+      <h4>Usuario</h4>
+      <form>
+        <div class="form-group">
+          <label for="titulo">eMAIL</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            [(ngModel)]="usuarioActual.email"
+            name="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="descripcion">Password</label>
+          <input
+            type="text"
+            class="form-control"
+            id="password"
+            [(ngModel)]="usuarioActual.password"
+            name="password"
+          />
+        </div>
+  
+        <div class="form-group">
+            <label for="descripcion">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              [(ngModel)]="usuarioActual.username"
+              name="username"
+            />
+          </div>
+          <div class="form-group">
+            <label for="descripcion">Rol</label>
+            <input
+              type="text"
+              class="form-control"
+              id="role_id"
+              [(ngModel)]="usuarioActual.role_id"
+              name="role_id"
+            />
+          </div>
+      </form>
+      <button class="badge badge-danger mr-2" (click)="eliminarUsuario()">
+        Eliminar
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="actualizarUsuario()"
+      >
+        Actualizar
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!usuarioActual.id">
+      <br />
+      <p>No se puede acceder a esta Imagen...</p>
+    </div>
+  </ng-template>
+  
+  
+  

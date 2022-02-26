@@ -1,0 +1,35 @@
+<h5 class="api">FLICKR API</h5>
+<div class="container containerfl">
+  <div class="form-group">
+    <input type="search" class="form-control" (keyup)="search($event)" placeholder="Search images">
+    <br>
+    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+      <button (click)="fontSize()" class="btn-flotante">Cambiar Fuente</button>
+      <button type="button" class="btn btn-danger" (click)="searchanimales($event)"[style.fontSize]="font? font1:font2">Animales</button>
+      <button type="button" class="btn btn-warning" (click)="searchmusica($event)" [style.fontSize]="font? font1:font2">Musica</button>
+      <button type="button" class="btn btn-success" (click)="searchflores($event)" [style.fontSize]="font? font1:font2">Flores</button>
+      <button class="btn btn-block btn-primary"><a href="../login" class="nav-link a" routerLink="../login" style="color: black;">Iniciar Sesion</a></button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 p-3" *ngFor="let image of images">
+      <div class="card">
+        <a href="{{image.url}}_b.jpg" target="_blank">
+          <img src="{{image.url}}_m.jpg" title="{{image.title}}">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="search-results"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()">
+  </div>
+</div>
+
+
+
+

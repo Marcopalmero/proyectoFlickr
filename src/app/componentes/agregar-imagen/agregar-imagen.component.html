@@ -1,0 +1,36 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="title">Título</label>
+          <input
+            type="text"
+            class="form-control"
+            id="titulo"
+            required
+            [(ngModel)]="tutorial.titulo"
+            name="titulo"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="descriction">Link</label>
+          <input
+            class="form-control"
+            id="link"
+            required
+            [(ngModel)]="tutorial.link"
+            name="link"
+          />
+        </div>
+        <div class="btn-group" role="group" aria-label="...">
+          <button (click)="guardarTutorial()" class="btn btn-success">Enviar</button> </div>
+        <button class="m-3 btn btn-sm btn-outline-info btnn"><a href="../images" class="btnn" routerLink="../images" style="color: black;">Listar Imagenes</a></button></div>
+        
+
+      <div *ngIf="submitted">
+        <h4>Imagen enviada correctamente!</h4>
+        <button class="btn btn-success" (click)="nuevoTutorial()">Agregar</button>
+      </div>
+    </div>
+  </div>
